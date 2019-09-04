@@ -7,10 +7,11 @@ class Operation extends React.Component {
   //     //   operator: ""
   //     // };
   //   }
-  changeColor = () => {
-    console.log("hello");
-  };
+  // changeColor = () => {
+  //   console.log("hello");
+  // };
   render() {
+    // console.log(this.props.class);
     return (
       <button
         className={this.props.class}
