@@ -249,18 +249,16 @@ class Screen extends React.Component {
           case "/":
             console.log("in again of first /");
             var result_local = this.state.integer1 / this.state.again_int1;
-
             this.setState({
               screen: result_local,
               integer1: result_local,
               again_operator: this.state.operator,
               result: [...this.state.result, result_local],
-
               integer2: 0,
               int2_check: false
             });
             break;
-          case "*":
+          case "x":
             var result_local = this.state.integer1 * this.state.again_int1;
             console.log("in again of first *");
             this.setState({
@@ -311,7 +309,7 @@ class Screen extends React.Component {
             int2_check: false
           });
           break;
-        case "*":
+        case "x":
           var result_local = this.state.integer1 * this.state.again_cal_int2;
           this.setState({
             screen: result_local,
@@ -391,7 +389,7 @@ class Screen extends React.Component {
           });
           console.log(this.state);
           break;
-        case "*":
+        case "x":
           console.log("in again of third *");
           var result_local = this.state.integer1 * this.state.integer2;
           console.log(result_local);
@@ -406,7 +404,6 @@ class Screen extends React.Component {
             integer2: 0,
             int2_dot_val_check: false,
             int2_value_check: false, // this line is additional for checking
-
             operator: ""
           });
           console.log(this.state);
@@ -529,7 +526,7 @@ class Screen extends React.Component {
     console.log("in change color");
     if (oprt === "/") {
       this.setState({ btn1: true, btn2: false, btn3: false, btn4: false });
-    } else if (oprt === "*") {
+    } else if (oprt === "x") {
       this.setState({ btn1: false, btn2: true, btn3: false, btn4: false });
     } else if (oprt === "-") {
       this.setState({ btn1: false, btn2: false, btn3: true, btn4: false });
@@ -604,7 +601,7 @@ class Screen extends React.Component {
               }
               // class="btn btn-secondary cal-btn clr "
               onClick={this.operation}
-              oprt="*"
+              oprt="x"
             />
           </div>
           <div className="no-outline">
