@@ -220,20 +220,20 @@ class Screen extends React.Component {
         });
       } else {
         switch (this.state.operator) {
-          case "%":
-            var result_local = this.state.integer1 / 100;
-            console.log("in %");
-            this.setState({
-              screen: result_local,
-              integer1: result_local,
-              again_operator: this.state.operator,
-              again_cal_int2: this.state.integer2,
-              result: [...this.state.result, result_local],
-              integer2: 0
-              // ,
-              // operator: ""
-            });
-            break;
+          // case "%":
+          //   var result_local = this.state.integer1 / 100;
+          //   console.log("in %");
+          //   this.setState({
+          //     screen: result_local,
+          //     integer1: result_local,
+          //     again_operator: this.state.operator,
+          //     again_cal_int2: this.state.integer2,
+          //     result: [...this.state.result, result_local],
+          //     integer2: 0
+          //     // ,
+          //     // operator: ""
+          //   });
+          //   break;
           case "+":
             var result_local = this.state.integer1 + this.state.again_int1;
             this.setState({
@@ -247,6 +247,7 @@ class Screen extends React.Component {
             });
             break;
           case "/":
+            console.log("in again of first /");
             var result_local = this.state.integer1 / this.state.again_int1;
 
             this.setState({
@@ -261,6 +262,7 @@ class Screen extends React.Component {
             break;
           case "*":
             var result_local = this.state.integer1 * this.state.again_int1;
+            console.log("in again of first *");
             this.setState({
               screen: result_local,
               integer1: result_local,
@@ -319,6 +321,8 @@ class Screen extends React.Component {
           });
           break;
         case "/":
+          console.log("in again of second");
+
           var result_local = this.state.integer1 / this.state.again_cal_int2;
           this.setState({
             screen: result_local,
@@ -341,8 +345,10 @@ class Screen extends React.Component {
             result: [...this.state.result, result_local],
             integer2: 0,
             int2_dot_val_check: false,
+            int2_value_check: false, // this line is additional for checking
             operator: ""
           });
+          console.log(this.state);
           break;
         case "+":
           var result_local = this.state.integer1 + this.state.integer2;
@@ -357,6 +363,8 @@ class Screen extends React.Component {
             int2_dot: false,
             integer2: 0,
             int2_dot_val_check: false,
+            int2_value_check: false, // this line is additional for checking
+
             operator: ""
           });
           console.log(this.state);
@@ -377,11 +385,16 @@ class Screen extends React.Component {
             int2_dot: false,
             integer2: 0,
             int2_dot_val_check: false,
+            int2_value_check: false, // this line is additional for checking
+
             operator: ""
           });
+          console.log(this.state);
           break;
         case "*":
+          console.log("in again of third *");
           var result_local = this.state.integer1 * this.state.integer2;
+          console.log(result_local);
           this.setState({
             screen: result_local,
             integer1: result_local,
@@ -392,12 +405,18 @@ class Screen extends React.Component {
             int2_dot: false,
             integer2: 0,
             int2_dot_val_check: false,
+            int2_value_check: false, // this line is additional for checking
+
             operator: ""
           });
+          console.log(this.state);
           break;
         case "/":
+          console.log("in again of third /");
+          //  || isNaN(result_local) === true
           var result_local = this.state.integer1 / this.state.integer2;
-          if (result_local === Infinity || isNaN(result_local) === true) {
+          console.log(result_local);
+          if (result_local === Infinity) {
             document.getElementById("screen").innerHTML =
               "your ans is in infinity";
             this.setState({ screen: "Error" });
@@ -413,8 +432,11 @@ class Screen extends React.Component {
               int2_dot: false,
               integer2: 0,
               int2_dot_val_check: false,
+              int2_value_check: false, // this line is additional for checking
+
               operator: ""
             });
+            console.log(this.state);
             break;
           }
       }
