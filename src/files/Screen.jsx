@@ -70,8 +70,8 @@ class Screen extends React.Component {
           //testing end ---------------------------------------------||||||||||||||||||||||||||||||||||||||||||||||
           this.setState({
             integer1: int1_dot_updated,
-            // screen: this.state.screen + number, <------------------- this is old line for undo
-            screen: int1_dot_updated, // <--------------- this is new line
+            screen: this.state.screen + number,
+            // screen: int1_dot_updated,
             int1_check: true,
             int1_divide: this.state.int1_divide * 10
           });
@@ -118,8 +118,8 @@ class Screen extends React.Component {
 
           this.setState({
             integer2: int2_dot_updated,
-            // screen: this.state.screen + number,  <------------------- this is old line for undo
-            screen: int2_dot_updated, // <--------------- this is new line
+            screen: this.state.screen + number,
+            // screen: int2_dot_updated,
             int2_divide: this.state.int2_divide * 10,
             int2_value_check: true
           });
