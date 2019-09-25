@@ -286,7 +286,7 @@ class Screen extends React.Component {
         }
       }
     } else if (
-      this.state.int2_value_check === true &&
+      this.state.int2_value_check === false &&
       this.state.operator === ""
     ) {
       console.log("in again calculation");
@@ -351,21 +351,26 @@ class Screen extends React.Component {
         case "+":
           var result_local = this.state.integer1 + this.state.integer2;
           console.log(result_local);
-          this.setState({
-            screen: result_local,
-            integer1: result_local,
-            again_operator: this.state.operator,
-            again_cal_int2: this.state.integer2,
-            result: [...this.state.result, result_local],
-            int2_divide: 10,
-            int2_dot: false,
-            integer2: 0,
-            int2_dot_val_check: false,
-            int2_value_check: false, // this line is additional for checking
+          console.log("hello");
+          this.setState(
+            {
+              screen: result_local,
+              integer1: result_local,
+              again_operator: this.state.operator,
+              again_cal_int2: this.state.integer2,
+              result: [...this.state.result, result_local],
+              int2_divide: 10,
+              int2_dot: false,
+              integer2: 0,
+              int2_dot_val_check: false,
+              int2_value_check: false,
+              operator: ""
+            },
+            () => {
+              console.log(this.state);
+            }
+          );
 
-            operator: ""
-          });
-          console.log(this.state);
           break;
         case "-":
           console.log("there");
@@ -384,7 +389,6 @@ class Screen extends React.Component {
             integer2: 0,
             int2_dot_val_check: false,
             int2_value_check: false, // this line is additional for checking
-
             operator: ""
           });
           console.log(this.state);
@@ -403,7 +407,7 @@ class Screen extends React.Component {
             int2_dot: false,
             integer2: 0,
             int2_dot_val_check: false,
-            int2_value_check: false, // this line is additional for checking
+            int2_value_check: false,
             operator: ""
           });
           console.log(this.state);
