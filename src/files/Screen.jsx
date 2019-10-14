@@ -145,7 +145,7 @@ class Screen extends React.Component {
           });
         }
       } else {
-        this.setState({ screen: this.state.integer1 });
+        this.setState({ screen: this.state.integer2 });
       }
     }
   };
